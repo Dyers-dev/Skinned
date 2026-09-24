@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://ylr3holq8m6p"]
+
+[ext_resource type="Texture2D" uid="uid://d1dqtx4r720x7" path="res://Assets/D20-Icon.jpg" id="1_6bp64"]
+[ext_resource type="Script" uid="uid://c7xcaj775ew5r" path="res://Scripts/CardManager.gd" id="1_8gbba"]
+[ext_resource type="PackedScene" uid="uid://cy0cfhllgfh7p" path="res://Scenes/CardSlot.tscn" id="2_jjvhh"]
+[ext_resource type="Script" uid="uid://6gd4u0haha0t" path="res://Scripts/playerhand.gd" id="3_kry3j"]
+[ext_resource type="Script" uid="uid://bociu1d4d4vrg" path="res://Scenes/deck.gd" id="4_21xkr"]
+[ext_resource type="Texture2D" uid="uid://buj0ogee1s45" path="res://Assets/Deck.png" id="5_6bp64"]
+[ext_resource type="Script" uid="uid://cknac06rfk5qd" path="res://Scenes/inputmanager.gd" id="6_344ge"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r3qn0"]
+size = Vector2(172.5, 234.49994)
+
+[node name="Main" type="Node2D" unique_id=693289016]
+
+[node name="Health Points" type="Node2D" parent="." unique_id=2109861858]
+
+[node name="Sprite2D" type="Sprite2D" parent="Health Points" unique_id=1920381368]
+position = Vector2(172.75, 517)
+scale = Vector2(0.1345, 0.12000004)
+texture = ExtResource("1_6bp64")
+
+[node name="HP" type="RichTextLabel" parent="Health Points" unique_id=1136739407]
+modulate = Color(3.285472e-06, 5.6141175e-06, 7.138927e-06, 1)
+offset_left = 160.0
+offset_top = 496.0
+offset_right = 208.0
+offset_bottom = 532.0
+theme_override_font_sizes/normal_font_size = 23
+text = "20"
+
+[node name="CardManager" type="Node2D" parent="." unique_id=2102337008]
+script = ExtResource("1_8gbba")
+
+[node name="CardSlot" parent="." unique_id=445709765 instance=ExtResource("2_jjvhh")]
+position = Vector2(688, 616)
+
+[node name="PlayerHand" type="Node2D" parent="." unique_id=219986967]
+script = ExtResource("3_kry3j")
+
+[node name="Deck" type="Node2D" parent="." unique_id=1437344213]
+position = Vector2(204, 410)
+script = ExtResource("4_21xkr")
+
+[node name="Sprite2D" type="Sprite2D" parent="Deck" unique_id=748330762]
+z_index = -2
+position = Vector2(-30.999998, -63)
+scale = Vector2(0.76666665, 0.72452843)
+texture = ExtResource("5_6bp64")
+
+[node name="Area2D" type="Area2D" parent="Deck" unique_id=798953892]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deck/Area2D" unique_id=1748012711]
+position = Vector2(-31, -62.999985)
+scale = Vector2(0.8, 0.8)
+shape = SubResource("RectangleShape2D_r3qn0")
+debug_color = Color(5.2943824e-06, 0.5836222, 0.78739536, 0.41960785)
+
+[node name="DeckCount" type="RichTextLabel" parent="Deck" unique_id=1907126981]
+modulate = Color(0.70935374, 0.70935374, 0.70935374, 1)
+offset_left = 17.0
+offset_top = 4.0
+offset_right = 57.0
+offset_bottom = 44.0
+text = "0"
+
+[node name="InputManager" type="Node2D" parent="." unique_id=1747884384]
+script = ExtResource("6_344ge")

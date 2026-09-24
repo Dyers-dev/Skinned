@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://cn6k4gny4ih1y"]
+
+[ext_resource type="Texture2D" uid="uid://b81gv7tbbo3ec" path="res://Assets/Cards/cardJoker.png" id="1_dd2wi"]
+[ext_resource type="Script" uid="uid://c5w48a8bqkd0f" path="res://Scripts/Card.gd" id="1_hael8"]
+[ext_resource type="Texture2D" uid="uid://7caiyjs0usmu" path="res://Assets/Cards/cardHeartsJ.png" id="3_1geux"]
+[ext_resource type="Texture2D" uid="uid://6gudb2x7c4er" path="res://Assets/Cards/cardDiamonds5.png" id="3_h8wm0"]
+[ext_resource type="Texture2D" uid="uid://52fdxxfr1xpl" path="res://Assets/Cards/cardHearts5.png" id="4_13sua"]
+[ext_resource type="Texture2D" uid="uid://3yu0m60cuhjq" path="res://Assets/Cards/cardSpades2.png" id="6_pbuqb"]
+[ext_resource type="Texture2D" uid="uid://dvluhoxsvqvat" path="res://Assets/Cards/cardClubs8.png" id="7_f3ywt"]
+[ext_resource type="Texture2D" uid="uid://cuoxy0xwaqhcl" path="res://Assets/Cards/cardSpadesQ.png" id="8_6elyo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_chdrt"]
+size = Vector2(135, 184)
+
+[node name="Card" type="Node2D" unique_id=2073625548]
+position = Vector2(380, 410)
+script = ExtResource("1_hael8")
+
+[node name="Joker" type="Sprite2D" parent="." unique_id=2104064927]
+visible = false
+texture = ExtResource("1_dd2wi")
+
+[node name="HeartsJ" type="Sprite2D" parent="." unique_id=71171535]
+visible = false
+texture = ExtResource("3_1geux")
+
+[node name="Hearts5" type="Sprite2D" parent="." unique_id=2080267775]
+visible = false
+texture = ExtResource("4_13sua")
+
+[node name="Diamonds5" type="Sprite2D" parent="." unique_id=1909797447]
+visible = false
+texture = ExtResource("3_h8wm0")
+
+[node name="Spades2" type="Sprite2D" parent="." unique_id=1844474199]
+visible = false
+texture = ExtResource("6_pbuqb")
+
+[node name="Clubs8" type="Sprite2D" parent="." unique_id=1744732899]
+visible = false
+texture = ExtResource("7_f3ywt")
+
+[node name="SpadesQ" type="Sprite2D" parent="." unique_id=276029526]
+visible = false
+texture = ExtResource("8_6elyo")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1166633090]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1370345966]
+shape = SubResource("RectangleShape2D_chdrt")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
